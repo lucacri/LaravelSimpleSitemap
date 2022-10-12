@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Lucacri\LaravelSimpleSitemap\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class LaravelSimpleSitemapCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'laravelsimplesitemap';
 
     public $description = 'My command';
 
