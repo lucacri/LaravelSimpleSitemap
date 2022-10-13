@@ -2,6 +2,7 @@
 
 namespace Lucacri\LaravelSimpleSitemap;
 
+use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 use Lucacri\LaravelSimpleSitemap\Commands\LaravelSimpleSitemapCommand;
@@ -19,7 +20,10 @@ class LaravelSimpleSitemapServiceProvider extends PackageServiceProvider
             ->name('laravelsimplesitemap')
             ->hasConfigFile()
             ->hasViews()
-            ->hasMigration('create_laravelsimplesitemap_table')
-            ->hasCommand(LaravelSimpleSitemapCommand::class);
+            ->hasCommand(LaravelSimpleSitemapCommand::class)
+            ->hasInstallCommand(function(InstallCommand $command) {
+                $command
+                    ->publishConfigFile();
+            });
     }
 }
